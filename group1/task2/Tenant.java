@@ -50,6 +50,11 @@ public class Tenant {
                     tenantName = scanner.nextLine();
                     getMonthlyRent(tenantName);
                     break;
+                case 3: 
+                    System.out.println("Please enter a tenant name");
+                    tenantName = scanner.nextLine();
+                    getFirstMonthRent(tenantName);
+                    break;
                 default:
                 System.out.println("Invalid choice. Please try again.");
             }
@@ -104,6 +109,23 @@ public class Tenant {
 
         System.out.println("The tenant" + tenantName + " monthly rent is " + monthlyRentRetrieval);
         
+    }
+
+    private void getFirstMonthRent(String tenantName) {
+
+        if(!map.containsKey(tenantName)) {
+            System.out.println("Invalid tenant name, unable to find user");
+            return;
+        }
+
+        Map<String, Object> tentantInformation = map.get(tenantName);
+        int monthlyRent = (int) tentantInformation.get("monthlyRent");
+        int securityDeposit = (int) tentantInformation.get("securityDeposit");
+
+        int firstMonthRent = (monthlyRent * 2) + (securityDeposit);
+
+        System.out.println("The tenant " + tenantName + " has a first month payment of " + firstMonthRent);
+
     }
 
     
