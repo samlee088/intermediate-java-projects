@@ -26,21 +26,29 @@ public class Tenant {
 
     private void run() {
         while (true) {
+            String tenantName;
+
             System.out.println("\nTenant Management System");
             System.out.println("1. Create Tenant");
-            System.out.println("2. Deposit");
-            System.out.println("3. Withdraw");
+            System.out.println("2. Get Monthly Rent");
+            System.out.println("3. Get First Month Rent");
             System.out.println("4. Check Balance");
             System.out.println("5. Exit");
             System.out.print("Enter your choice: ");
             int choice = scanner.nextInt();
             scanner.nextLine();
+            
 
             switch (choice) {
                 case 1:
                     System.out.println("Please enter a tenant name");
-                    String tenantName = scanner.nextLine();
+                    tenantName = scanner.nextLine();
                     createTenant(tenantName);
+                    break;
+                case 2:
+                    System.out.println("Please enter a tenant name");
+                    tenantName = scanner.nextLine();
+                    getMonthlyRent(tenantName);
                     break;
                 default:
                 System.out.println("Invalid choice. Please try again.");
@@ -81,8 +89,24 @@ public class Tenant {
         map.put(tenantName, innerMap);
        
         System.out.println("Tenant information has been saved");
+
+    }
+
+    private void getMonthlyRent(String tenantName) {
+
+        if(!map.containsKey(tenantName)) {
+            System.out.println("Invalid tenant name, unable to find user");
+            return;
+        }
+
+        Object monthlyRentObject = map.get(tenantName).get("monthlyRent");
+        int monthlyRentRetrieval = (int) monthlyRentObject;
+
+        System.out.println("The tenant" + tenantName + " monthly rent is " + monthlyRentRetrieval);
         
     }
+
+    
 
 
    
