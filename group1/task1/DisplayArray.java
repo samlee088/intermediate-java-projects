@@ -12,7 +12,7 @@ public class DisplayArray {
         DisplayArray displayArray = new DisplayArray();
      
         displayArray.promptUser();
-
+        
     }
 
     private void promptUser() {
