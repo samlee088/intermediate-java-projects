@@ -32,8 +32,8 @@ public class Tenant {
             System.out.println("1. Create Tenant");
             System.out.println("2. Get Monthly Rent");
             System.out.println("3. Get First Month Rent");
-            System.out.println("4. Check Balance");
-            System.out.println("5. Exit");
+            System.out.println("4. Set Monthly Rent");
+            System.out.println("5. Set security Deposit");
             System.out.print("Enter your choice: ");
             int choice = scanner.nextInt();
             scanner.nextLine();
@@ -54,6 +54,16 @@ public class Tenant {
                     System.out.println("Please enter a tenant name");
                     tenantName = scanner.nextLine();
                     getFirstMonthRent(tenantName);
+                    break;
+                case 4: 
+                    System.out.println("Please enter a tenant name");
+                    tenantName = scanner.nextLine();
+                    setMonthlyRent(tenantName);
+                    break;
+                case 5: 
+                    System.out.println("Please enter a tenant name");
+                    tenantName = scanner.nextLine();
+                    setSecurityDeposit(tenantName);
                     break;
                 default:
                 System.out.println("Invalid choice. Please try again.");
@@ -127,6 +137,60 @@ public class Tenant {
         System.out.println("The tenant " + tenantName + " has a first month payment of " + firstMonthRent);
 
     }
+
+    private void setMonthlyRent(String tenantName) {
+
+        if(!map.containsKey(tenantName)) {
+            System.out.println("Invalid tenant name, unable to find user");
+            return;
+        }
+
+        
+        int updatedMonthlyRentValue;
+
+        while(true) {   
+            System.out.println("Please enter an updated monthly rent value");
+            updatedMonthlyRentValue = scanner.nextInt();
+
+            if(updatedMonthlyRentValue > 0) {
+                break;
+            }
+        }
+
+        Map<String, Object> tenantInfo = (Map<String, Object>) map.get(tenantName);
+        tenantInfo.put("monthlyRent", updatedMonthlyRentValue);
+
+        map.put(tenantName, tenantInfo);
+
+    }
+
+    
+    private void setSecurityDeposit(String tenantName) {
+
+        if(!map.containsKey(tenantName)) {
+            System.out.println("Invalid tenant name, unable to find user");
+            return;
+        }
+
+        
+        int updatedSecurityDepositValue;
+
+        while(true) {   
+            System.out.println("Please enter an updated monthly rent value");
+            updatedSecurityDepositValue = scanner.nextInt();
+
+            if(updatedSecurityDepositValue > 0) {
+                break;
+            }
+        }
+
+        Map<String, Object> tenantInfo = (Map<String, Object>) map.get(tenantName);
+        tenantInfo.put("securityDeposit", updatedSecurityDepositValue);
+
+        map.put(tenantName, tenantInfo);
+        
+    }
+
 
     
 
