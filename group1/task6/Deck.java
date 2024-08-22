@@ -17,5 +17,22 @@ public class Deck {
         }
     }
 
-    
+    public void print() {
+        for(Card card: cards) {
+            card.print();
+        }
+    }
+
+    public Card draw() {
+        return cards.remove(cards.size() -1);
+    }
+
+    public void shuffle() {
+        for(int i = 0; i < cards.size(); i++) {
+            int j =random.nextInt(51);
+            Card temp = cards.get(i);
+            cards.set(i, cards.get(j));
+            cards.set(j, temp);
+        }
+    }
 }
