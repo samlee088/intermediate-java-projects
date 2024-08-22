@@ -21,7 +21,7 @@ public class Hand {
 
     public int getScore() {
         return score;
-
+    }
     public List<Card> getCards() {
         return cards;
     }
@@ -31,5 +31,5 @@ public class Hand {
             System.out.println(card.getSuit() + ", " + card.getValue());
         }
     }
-
+    
 }
