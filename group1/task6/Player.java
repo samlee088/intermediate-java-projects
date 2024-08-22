@@ -7,7 +7,7 @@ abstract class Player {
         this.hand = hand;
     }
 
-    public Hand gethand() {
+    public Hand getHand() {
         return this.hand;
     }
 
