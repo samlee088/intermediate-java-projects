@@ -32,8 +32,9 @@ public class Calculator {
             switch(choice) {
                 case 1:
                     System.out.println("Please enter in a new number");
-                    input = scanner.nextInt();
+                    input = (double) scanner.nextInt();
                     stack.add(input);
+                    break;
                 case 2:
                     System.out.println("\n Operation");
                     System.out.println("1. Addition");
@@ -43,11 +44,14 @@ public class Calculator {
                     System.out.print("Enter your choice: ");
                     choice = scanner.nextInt();
                     operation(choice);
+                    break;
                 case 3:
                     clearCalc();
                     System.out.println("Calculator has been cleared");
+                    break;
                 default:
                     System.out.println("Please enter a valid option");
+                    break;
             }
         }
     }
@@ -57,25 +61,42 @@ public class Calculator {
     }
 
     private void operation(int choice) {
-        
-        double second = stack.pop();
-        double first = stack.pop();
+        double second;
+        double first;
         double result;
 
+        if(stack.size() < 2) {
+            System.out.println("Not enough digits entered");
+            return;
+        }
+       
+        second = stack.pop();
+        first = stack.pop();
+     
         switch (choice) {
             case 1: 
                 result = first + second;
+                break;
             case 2:
                 result = first - second;
+                break;
             case 3:
                 result = first * second;
+                break;
             case 4:
+                if(second == 0) {
+                    System.out.println("Unable to divide by 0");
+                    return;
+                }
                 result = first / second;
+                break;
             default:
                 result = 0;
+                break;
             
             
         }
+        System.out.println("Results: " + result);
         stack.push(result);
     }
     
