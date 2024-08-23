@@ -31,6 +31,7 @@ public class Calculator {
 
             switch(choice) {
                 case 1:
+                    System.out.println("Please enter in a new number");
                     input = scanner.nextInt();
                     stack.add(input);
                 case 2:
@@ -40,13 +41,13 @@ public class Calculator {
                     System.out.println("3. Multiplication");
                     System.out.println("4. Division");
                     System.out.print("Enter your choice: ");
-                    input = scanner.nextInt();
-
+                    choice = scanner.nextInt();
+                    operation(choice);
                 case 3:
                     clearCalc();
                     System.out.println("Calculator has been cleared");
                 default:
-                    System.out.println("Please enter a valid option")
+                    System.out.println("Please enter a valid option");
             }
         }
     }
