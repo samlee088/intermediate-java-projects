@@ -13,7 +13,7 @@ public class Calculator {
         this.scanner = new Scanner(System.in);
     }
 
-    private void run() {
+    public void run() {
 
        
 
