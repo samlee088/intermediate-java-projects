@@ -1,5 +1,6 @@
 package group1.task9.code;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -13,7 +14,14 @@ public class Main {
             choice = scanner.nextInt();
         }
 
-        
+        Permutations permutations = new Permutations();
+        permutations.createPermutations(choice);
+
+        // List<List<Integer>> permutationsDisplay = permutations.getPermutations();
+        // System.out.println("Permutations:");
+        // for (List<Integer> permutation : permutationsDisplay) {
+        //     System.out.println(permutation);
+        // }
 
         
     }
