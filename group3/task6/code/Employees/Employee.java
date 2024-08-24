@@ -9,5 +9,7 @@ public class Employee {
         this.type = type;
     }
 
-    
+    public void working() {
+        return;
+    }
 }

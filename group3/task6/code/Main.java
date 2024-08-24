@@ -6,6 +6,9 @@ public class Main {
     
     public static void main(String[] args) {
         Hospital newportAnimalHospital = new Hospital("Newport Way Animal Hospital");
-        
+
+        HospitalOperations.run(newportAnimalHospital);
     }
+
+
 }
