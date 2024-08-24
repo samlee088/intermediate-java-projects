@@ -24,4 +24,16 @@ public class Hospital {
         checkOutQueue = new LinkedList<String>();
 
     }
+
+    public Map<String, Map<String, Object>> getEmployees() {
+        return employees;
+    }
+
+    public int getReceptionists() {
+        return getEmployees().get("receptionists").size();
+    }
+
+    public int getDoctors() {
+        return getEmployees().get("doctors").size();
+    }
 }
