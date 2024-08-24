@@ -30,7 +30,23 @@ public class Permutations {
     }
 
     public void bubbleSortPermutations() {
-        
+        boolean bubbleSortTrigger = true;
+
+        while(bubbleSortTrigger) {
+            bubbleSortTrigger = false;
+
+            for(int i = 0; i < storage.size()-1; i++) {
+                for(int j = 0; j < storage.get(0).size()-1; j++) {
+                    if(storage.get(i).get(j) < storage.get(i+1).get(j+1)) {
+                        List<Integer> temp = storage.get(i);
+                        storage.set(i, storage.get(i+1));
+                        storage.set(i+1, temp);
+                        bubbleSortTrigger = true;
+                    }
+                }
+            }
+
+        }
     }
     
     public List<List<Integer>> getPermutations() {
