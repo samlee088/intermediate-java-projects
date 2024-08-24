@@ -17,11 +17,17 @@ public class Main {
         Permutations permutations = new Permutations();
         permutations.createPermutations(choice);
 
-        // List<List<Integer>> permutationsDisplay = permutations.getPermutations();
-        // System.out.println("Permutations:");
-        // for (List<Integer> permutation : permutationsDisplay) {
-        //     System.out.println(permutation);
-        // }
+
+        permutations.bubbleSortPermutations();
+
+        List<List<Integer>> permutationsDisplay = permutations.getPermutations();
+        System.out.println("Permutations:");
+        for (List<Integer> permutation : permutationsDisplay) {
+            System.out.println(permutation);
+        }
+
+
+        
 
         
     }

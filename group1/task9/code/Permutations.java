@@ -28,6 +28,10 @@ public class Permutations {
             }
         }
     }
+
+    public void bubbleSortPermutations() {
+        
+    }
     
     public List<List<Integer>> getPermutations() {
         return storage;
