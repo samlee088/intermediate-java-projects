@@ -31,22 +31,28 @@ public class Permutations {
 
     public void bubbleSortPermutations() {
         boolean bubbleSortTrigger = true;
-
-        while(bubbleSortTrigger) {
+    
+        while (bubbleSortTrigger) {
             bubbleSortTrigger = false;
-
-            for(int i = 0; i < storage.size()-1; i++) {
-                for(int j = 0; j < storage.get(0).size()-1; j++) {
-                    if(storage.get(i).get(j) < storage.get(i+1).get(j+1)) {
-                        List<Integer> temp = storage.get(i);
-                        storage.set(i, storage.get(i+1));
-                        storage.set(i+1, temp);
-                        bubbleSortTrigger = true;
-                    }
+    
+            for (int i = 0; i < storage.size() - 1; i++) {
+                if (compareLists(storage.get(i), storage.get(i + 1)) > 0) {
+                    List<Integer> temp = storage.get(i);
+                    storage.set(i, storage.get(i + 1));
+                    storage.set(i + 1, temp);
+                    bubbleSortTrigger = true;
                 }
             }
-
         }
+    }
+    
+    private int compareLists(List<Integer> list1, List<Integer> list2) {
+        for (int i = 0; i < Math.min(list1.size(), list2.size()); i++) {
+            if (list1.get(i) != list2.get(i)) {
+                return Integer.compare(list1.get(i), list2.get(i));
+            }
+        }
+        return Integer.compare(list1.size(), list2.size());
     }
     
     public List<List<Integer>> getPermutations() {
