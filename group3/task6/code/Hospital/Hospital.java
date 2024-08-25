@@ -1,7 +1,9 @@
 package group3.task6.code.Hospital;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 import java.util.Queue;
 
@@ -14,6 +16,8 @@ public class Hospital {
     Map<String, Object> patients;
     Queue <String> checkInQueue;
     Queue<String> checkOutQueue;
+    List<String> doctorsWorking;
+    List<String> receptionistsWorking;
 
 
     public Hospital(String name) {
@@ -25,6 +29,8 @@ public class Hospital {
         employees.put("doctors", doctors);
         checkInQueue = new LinkedList<String>();
         checkOutQueue = new LinkedList<String>();
+        doctorsWorking = new ArrayList<>();
+        receptionistsWorking = new ArrayList<>();
 
     }
 
