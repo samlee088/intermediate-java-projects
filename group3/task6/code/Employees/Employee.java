@@ -12,4 +12,8 @@ public class Employee {
     public void working() {
         return;
     }
+
+    public String getEmployeeName() {
+        return name;
+    }
 }

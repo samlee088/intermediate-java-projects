@@ -5,6 +5,7 @@ import java.util.LinkedList;
 import java.util.Map;
 import java.util.Queue;
 
+import group3.task6.code.Employees.Doctor;
 import group3.task6.code.Employees.Receptionist;
 
 public class Hospital {
@@ -46,6 +47,9 @@ public class Hospital {
     }
 
     public void setReceptionists(Receptionist receptionist) {
-        getEmployees("receptionists").put(receptionist.getReceptionistName(), receptionist);
+        getEmployees("receptionists").put(receptionist.getEmployeeName(), receptionist);
+    }
+    public void setDoctors(Doctor doctor) {
+        getEmployees("doctors").put(doctor.getEmployeeName(), doctor);
     }
 }

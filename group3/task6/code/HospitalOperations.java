@@ -2,6 +2,7 @@ package group3.task6.code;
 
 import java.util.Scanner;
 
+import group3.task6.code.Employees.Doctor;
 import group3.task6.code.Employees.Receptionist;
 import group3.task6.code.Hospital.Hospital;
 
@@ -34,6 +35,8 @@ public class HospitalOperations {
             switch (choice){
                 case 1:
                     createAReceptionist(hospital);
+                case 2:
+                    createADoctor(hospital);
             }
         }
     }
@@ -51,6 +54,23 @@ public class HospitalOperations {
             System.out.println("Able to save receptionist to hospital" + " receptionistName");
         } catch (Error e) {
             System.out.println("An error occurred with saving receptionist " + receptionistName + " " + e.getMessage());
+        }
+        
+
+    }
+    private void createADoctor(Hospital hospital) {
+        String doctorName = scanner.next();
+        if(hospital.getEmployees("receptionists").containsKey(doctorName)) {
+            System.out.println("Receptionists already added to database");
+            return;
+        }
+
+        Doctor doctor = new Doctor(doctorName, 0);
+        try{
+            hospital.setDoctors(doctor);
+            System.out.println("Able to save  to hospital" + " doctorName");
+        } catch (Error e) {
+            System.out.println("An error occurred with saving doctor " + doctorName + " " + e.getMessage());
         }
         
 
