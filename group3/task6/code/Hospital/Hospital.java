@@ -5,6 +5,8 @@ import java.util.LinkedList;
 import java.util.Map;
 import java.util.Queue;
 
+import group3.task6.code.Employees.Receptionist;
+
 public class Hospital {
     String name;
     Map<String, Map<String, Object>> employees;
@@ -25,17 +27,25 @@ public class Hospital {
 
     }
 
-    
+
 
     public Map<String, Map<String, Object>> getEmployees() {
         return employees;
     }
 
-    public int getReceptionists() {
+    public Map<String, Object> getEmployees(String role) {
+        return getEmployees().get(role);
+    }
+
+    public int getReceptionistsCount() {
         return getEmployees().get("receptionists").size();
     }
 
-    public int getDoctors() {
+    public int getDoctorsCount() {
         return getEmployees().get("doctors").size();
+    }
+
+    public void setReceptionists(Receptionist receptionist) {
+        getEmployees("receptionists").put(receptionist.getReceptionistName(), receptionist);
     }
 }

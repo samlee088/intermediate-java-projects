@@ -6,6 +6,10 @@ public class Receptionist extends Employee{
         super(name, type);
     }
 
+    public String getReceptionistName() {
+        return name;
+    }
+
     public void checkInAnimal() {}
     public void addAnimal(){}
     public void checkOutAnimal(){}
