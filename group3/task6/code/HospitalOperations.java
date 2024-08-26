@@ -1,5 +1,6 @@
 package group3.task6.code;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -207,5 +208,28 @@ public class HospitalOperations {
          * doctor picks up from queue
          *  
          */
+
+        List<String> doctorsWorking = hospital.getEmployeesWorking("doctor");
+        int numDoctorsWorking = doctorsWorking.size();
+         if(numDoctorsWorking == 0){
+            System.out.println("There are no doctors currently working");
+            return;
+         }
+
+         Map<String, Object> doctors = hospital.getEmployees("doctors");
+         for(int i = 0; i < numDoctorsWorking; i++) {
+            Object obj = doctors.get(doctorsWorking.get(i));
+            if(obj instanceof Doctor) {
+                Doctor doctor = (Doctor) obj;
+                if(doctor.getPatients() > 0) {
+                    continue;
+                }
+                String patient = hospital.getPatientInQueue();
+                doctor.addPatient(patient);
+                System.out.println("Doctor " + doctor.getEmployeeName() + "has picked up patient " + patient);
+                return;
+            }
+         }
+        
     }
 }

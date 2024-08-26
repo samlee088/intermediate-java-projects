@@ -88,4 +88,8 @@ public class Hospital {
     public void checkInAnimal(Animal animal) {
         checkInQueue.add(animal.getName());
     }
+
+    public String getPatientInQueue() {
+        return checkInQueue.remove();
+    }
 }
