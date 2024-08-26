@@ -48,9 +48,12 @@ public class HospitalOperations {
                 case 5:
                     addAnimal(hospital);
                 case 6:
-            }       checkInPet(hospital);
+                    checkInPet(hospital);
                 case 7:
                     doctorAcceptPatient(hospital);
+            }      
+            
+               
         }
     }
 
