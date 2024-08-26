@@ -39,7 +39,9 @@ public class HospitalOperations {
                 case 2:
                     createADoctor(hospital);
                 case 3:
-
+                    doctorOnDuty(hospital);
+                case 4:
+                    receptionistOnDuty(hospital);
             }
         }
     }
@@ -99,5 +101,27 @@ public class HospitalOperations {
         doctor.working();
 
         hospital.setDoctors(doctor);
+    }
+
+    private void receptionistOnDuty(Hospital hospital) {
+        System.out.println("Please enter a doctor's name to check in as working");
+        String receptionistsName = scanner.next();
+
+        Map<String, Object> receptionists = hospital.getEmployees("receptionists");
+        if(receptionists.size() == 0) {
+            System.out.println("No doctors registered");
+            return;
+        }
+
+        if(!receptionists.containsKey(receptionistsName)) {
+            System.out.println("No doctor with this name found in database");
+            return;
+        }
+
+        Receptionist receptionist = (Receptionist) receptionists.get(receptionistsName);
+
+        receptionist.working();
+
+        hospital.setReceptionists(receptionist);
     }
 }
