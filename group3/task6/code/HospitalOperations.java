@@ -52,6 +52,8 @@ public class HospitalOperations {
                     checkInPet(hospital);
                 case 7:
                     doctorAcceptPatient(hospital);
+                case 9:
+                    treatPet(hospital);
             }      
             
                
@@ -200,14 +202,6 @@ public class HospitalOperations {
 
     }
     public void doctorAcceptPatient(Hospital hospital) {
-        /* check and see if there are any doctors working
-         *      if not, there must be
-         * if there are doctors working, check and see if they have a patient
-         *      if there are no doctors working, with no availability, wait
-         *          signal to wait until next checkout
-         * doctor picks up from queue
-         *  
-         */
 
         List<String> doctorsWorking = hospital.getEmployeesWorking("doctor");
         int numDoctorsWorking = doctorsWorking.size();
@@ -230,6 +224,10 @@ public class HospitalOperations {
                 return;
             }
          }
+        
+    }
+
+    public void treatPet(Hospital hospital) {
         
     }
 }
