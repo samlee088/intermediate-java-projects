@@ -61,6 +61,9 @@ public class Hospital {
         getEmployees("doctors").put(doctor.getEmployeeName(), doctor);
     }
 
+    public Map<String, Animal> getAnimals() {
+        return patients;
+    }
     public void setAnimal(Animal animal) {
         patients.put(animal.getName(), animal);
     }

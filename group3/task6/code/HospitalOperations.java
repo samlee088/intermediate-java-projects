@@ -3,6 +3,9 @@ package group3.task6.code;
 import java.util.Map;
 import java.util.Scanner;
 
+import group3.task6.code.Animals.Animal;
+import group3.task6.code.Animals.Cat;
+import group3.task6.code.Animals.Dog;
 import group3.task6.code.Employees.Doctor;
 import group3.task6.code.Employees.Receptionist;
 import group3.task6.code.Hospital.Hospital;
@@ -127,7 +130,37 @@ public class HospitalOperations {
         hospital.setReceptionists(receptionist);
     }
 
-    private void addAnimal() {
+    private void addAnimal(Hospital hospital) {
+        String animalName = scanner.next();
+        Map<String, Animal> animals = hospital.getAnimals();
+
+        if(animals.containsKey(animalName)) {
+            System.out.println("Animal already registered");
+            return;
+        }
+        System.out.println("Please choose an animal type, 0-generic, 1-dog, 2-cat");
+        Integer animalType = scanner.nextInt();
         
+        while(animalType > 3 || animalType < 0) {
+            System.out.println("Please choose a valid animal type");
+            animalType = scanner.nextInt();
+        }
+
+        switch (animalType) {
+            case 1:
+                Animal animal = new Animal(animalName, animalType);
+                hospital.setAnimal(animal);
+            case 2:
+                Dog dog = new Dog(animalName, animalType);
+                hospital.setAnimal(dog);
+            case 3:
+                Cat cat = new Cat(animalName, animalType);
+                hospital.setAnimal(cat);
+            default:
+                System.out.println("Unable to add animal to data base");
+        }
+
+        System.out.println("Able to add animal to data base for " + animalName);
+    
     }
 }

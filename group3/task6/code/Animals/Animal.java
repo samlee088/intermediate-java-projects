@@ -2,9 +2,12 @@ package group3.task6.code.Animals;
 
 public class Animal {
     String name;
-    String type;
-    
-    
+    Integer type;
+
+    public Animal(String name, Integer type) {
+        this.name = name;
+        this.type = type;
+    }
     public void routineVisit() {
         return;
     }
