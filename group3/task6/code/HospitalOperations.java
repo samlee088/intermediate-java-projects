@@ -257,8 +257,11 @@ public class HospitalOperations {
                 String patient = doctor.getCurrentPatient();
                 if(patient != patientName) continue;
 
+                Map<String, Animal> patients = hospital.getAnimals();
+                Animal patientObj = patients.get(patient);
+
                 System.out.println("Patient " + patientName + "is currently with doctor " + doctor.getEmployeeName());
-               
+                treatmentPatient(patientObj);
                 return;
             }
     }}
