@@ -54,6 +54,8 @@ public class HospitalOperations {
                     doctorAcceptPatient(hospital);
                 case 9:
                     treatPet(hospital);
+                case 10:
+                    checkOutPet(hospital);
             }      
             
                
@@ -230,13 +232,6 @@ public class HospitalOperations {
     public void treatPet(Hospital hospital) {
         System.out.println("Which patient would you like to treat?");
 
-        /* 
-         * ask for the patient name;
-         * see if a doctor has picked up the patient
-         * treat pet
-         *      treatment depends on type of patient
-         */
-
          String patientName = scanner.next();
 
          List<String> doctorsWorking = hospital.getEmployeesWorking("doctor");
@@ -298,5 +293,9 @@ public class HospitalOperations {
                     treatPatient = false;
             }
         }
+    }
+
+    public void checkOutPet(Hospital hospital) {
+        hospital.removePatientCheckOutQueue();
     }
 }

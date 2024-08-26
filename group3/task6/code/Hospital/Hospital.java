@@ -96,4 +96,7 @@ public class Hospital {
     public void addPatientCheckOutQueue(String patient) {
         checkOutQueue.add(patient);
     }
+    public void removePatientCheckOutQueue() {
+        checkOutQueue.remove();
+    }
 }
