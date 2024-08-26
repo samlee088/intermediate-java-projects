@@ -97,6 +97,7 @@ public class Hospital {
         checkOutQueue.add(patient);
     }
     public void removePatientCheckOutQueue() {
-        checkOutQueue.remove();
+        String patient = checkOutQueue.remove();
+        System.out.println("Patient has been released " + patient);
     }
 }
