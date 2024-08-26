@@ -84,4 +84,8 @@ public class Hospital {
     public void setAnimal(Animal animal) {
         patients.put(animal.getName(), animal);
     }
+
+    public void checkInAnimal(Animal animal) {
+        checkInQueue.add(animal.getName());
+    }
 }

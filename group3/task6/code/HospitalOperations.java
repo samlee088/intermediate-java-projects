@@ -187,5 +187,16 @@ public class HospitalOperations {
             return;
         }
 
+        String animalName = scanner.next();
+        
+        Map <String, Animal> animals = hospital.getAnimals();
+
+        if(!animals.containsKey(animalName)) {
+            System.out.println("Unable to locate animal in database, please add in first before checking in");
+            return;
+        }
+
+        hospital.checkInAnimal(animals.get(animalName));
+
     }
 }
