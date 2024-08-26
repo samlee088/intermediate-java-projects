@@ -9,6 +9,7 @@ import java.util.Queue;
 
 import group3.task6.code.Animals.Animal;
 import group3.task6.code.Employees.Doctor;
+import group3.task6.code.Employees.Employee;
 import group3.task6.code.Employees.Receptionist;
 
 public class Hospital {
@@ -59,6 +60,22 @@ public class Hospital {
     }
     public void setDoctors(Doctor doctor) {
         getEmployees("doctors").put(doctor.getEmployeeName(), doctor);
+    }
+
+    public void addEmployeeWorking(Employee employee, String type) {
+        if(type == "doctor") {
+            doctorsWorking.add(employee.getEmployeeName());
+        } else {
+            receptionistsWorking.add(employee.getEmployeeName());
+        }
+    }
+
+    public List<String> getEmployeesWorking(String type) {
+        if(type == "doctor") {
+            return doctorsWorking;
+        } else {
+            return receptionistsWorking;
+        }
     }
 
     public Map<String, Animal> getAnimals() {

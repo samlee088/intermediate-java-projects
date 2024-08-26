@@ -46,7 +46,8 @@ public class HospitalOperations {
                 case 4:
                     receptionistOnDuty(hospital);
                 case 5:
-
+                    addAnimal(hospital);
+                case 6:
             }
         }
     }
@@ -106,6 +107,7 @@ public class HospitalOperations {
         doctor.working();
 
         hospital.setDoctors(doctor);
+        hospital.addEmployeeWorking(doctor,"doctor");
     }
 
     private void receptionistOnDuty(Hospital hospital) {
@@ -128,6 +130,8 @@ public class HospitalOperations {
         receptionist.working();
 
         hospital.setReceptionists(receptionist);
+        hospital.addEmployeeWorking(receptionist,"receptionist");
+    
     }
 
     private void addAnimal(Hospital hospital) {
@@ -162,5 +166,26 @@ public class HospitalOperations {
 
         System.out.println("Able to add animal to data base for " + animalName);
     
+    }
+
+    private void checkInPet(Hospital hospital) {
+        /* first check and see if there is a receptionist
+         *  if not there must be one working
+         *  check and see if animal is registered
+         *      it not, it must be
+         *  add animal to the queue waiting to be picked up by a doctor
+         */
+
+        Map<String, Object> receptionists = hospital.getEmployees("receptionists");
+        if(receptionists.size() == 0) {
+            System.out.println("There are no registered receptionists at this hospital yet");
+            return;
+        }
+
+        if(hospital.getEmployeesWorking("receptionist").size() == 0) {
+            System.out.println("There are no receptionists currently working to check in patient");
+            return;
+        }
+
     }
 }
