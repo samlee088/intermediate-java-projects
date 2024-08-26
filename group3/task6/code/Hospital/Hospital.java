@@ -7,13 +7,14 @@ import java.util.List;
 import java.util.Map;
 import java.util.Queue;
 
+import group3.task6.code.Animals.Animal;
 import group3.task6.code.Employees.Doctor;
 import group3.task6.code.Employees.Receptionist;
 
 public class Hospital {
     String name;
     Map<String, Map<String, Object>> employees;
-    Map<String, Object> patients;
+    Map<String, Animal> patients;
     Queue <String> checkInQueue;
     Queue<String> checkOutQueue;
     List<String> doctorsWorking;
@@ -27,6 +28,7 @@ public class Hospital {
         Map<String, Object> doctors = new HashMap<String, Object>();
         employees.put("receptionists", receptionists);
         employees.put("doctors", doctors);
+        patients = new HashMap<String, Animal>();
         checkInQueue = new LinkedList<String>();
         checkOutQueue = new LinkedList<String>();
         doctorsWorking = new ArrayList<>();
@@ -57,5 +59,9 @@ public class Hospital {
     }
     public void setDoctors(Doctor doctor) {
         getEmployees("doctors").put(doctor.getEmployeeName(), doctor);
+    }
+
+    public void setAnimal(Animal animal) {
+        patients.put(animal.getName(), animal);
     }
 }
