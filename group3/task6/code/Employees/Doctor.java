@@ -23,4 +23,8 @@ public class Doctor extends Employee {
     public void addPatient(String patient) {
         this.patient.add(patient);
     }
+
+    public String getCurrentPatient() {
+        return patient.get(0); 
+    }
 }

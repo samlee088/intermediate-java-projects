@@ -228,6 +228,69 @@ public class HospitalOperations {
     }
 
     public void treatPet(Hospital hospital) {
+        System.out.println("Which patient would you like to treat?");
+
+        /* 
+         * ask for the patient name;
+         * see if a doctor has picked up the patient
+         * treat pet
+         *      treatment depends on type of patient
+         */
+
+         String patientName = scanner.next();
+
+         List<String> doctorsWorking = hospital.getEmployeesWorking("doctor");
+         int numDoctorsWorking = doctorsWorking.size();
+         if(numDoctorsWorking == 0){
+            System.out.println("There are no doctors currently working");
+            return;
+         }
+
+         Map<String, Object> doctors = hospital.getEmployees("doctors");
+         for(int i = 0; i < numDoctorsWorking; i++) {
+            Object obj = doctors.get(doctorsWorking.get(i));
+            if(obj instanceof Doctor) {
+                Doctor doctor = (Doctor) obj;
+                if(doctor.getPatients() > 0) {
+                    continue;
+                }
+                String patient = doctor.getCurrentPatient();
+                if(patient != patientName) continue;
+
+                System.out.println("Patient " + patientName + "is currently with doctor " + doctor.getEmployeeName());
+               
+                return;
+            }
+    }}
+
+    private void treatmentPatient(Animal patient) {
         
+        boolean treatPatient = true;
+
+        while(treatPatient) {
+            System.out.println("What kind of treatment would you like to preform?");
+            System.out.println("1. Generic follow up");
+            System.out.println("2. Spay/Neutering");
+            System.out.println("3. Specialized care");
+            System.out.println("4. Add Tag");
+            System.out.println("5. No more treatment");
+
+            Integer choice = scanner.nextInt();
+
+            switch (choice) {
+                case 1:
+                    patient.routineVisit();
+                case 2:
+                    
+                case 3:
+                    patient.specializedCare();
+                case 4:
+                    patient.addAnimalTag();
+                case 5:
+                    treatPatient = false;
+                default:
+                    treatPatient = false;
+            }
+        }
     }
 }

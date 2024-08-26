@@ -9,6 +9,7 @@ public class Animal {
         this.type = type;
     }
     public void routineVisit() {
+        System.out.println("Patient has finished routine visit");
         return;
     }
 
@@ -17,10 +18,12 @@ public class Animal {
     }
 
     public void specializedCare() {
+        System.out.println("Patient has finished specialized care");
         return;
     }
 
     public void addAnimalTag() {
+        System.out.println("Patient has finished adding animal tag");
         return;
     }
 }
