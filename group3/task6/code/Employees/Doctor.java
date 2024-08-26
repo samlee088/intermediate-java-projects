@@ -27,4 +27,8 @@ public class Doctor extends Employee {
     public String getCurrentPatient() {
         return patient.get(0); 
     }
+
+    public void removePatient() {
+        patient.remove(0);
+    }
 }

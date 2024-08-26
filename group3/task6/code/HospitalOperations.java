@@ -262,6 +262,9 @@ public class HospitalOperations {
 
                 System.out.println("Patient " + patientName + "is currently with doctor " + doctor.getEmployeeName());
                 treatmentPatient(patientObj);
+                doctor.removePatient();
+                hospital.setDoctors(doctor);
+                hospital.addPatientCheckOutQueue(patient);
                 return;
             }
     }}
