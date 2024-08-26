@@ -48,7 +48,9 @@ public class HospitalOperations {
                 case 5:
                     addAnimal(hospital);
                 case 6:
-            }
+            }       checkInPet(hospital);
+                case 7:
+                    doctorAcceptPatient(hospital);
         }
     }
 
@@ -169,12 +171,6 @@ public class HospitalOperations {
     }
 
     private void checkInPet(Hospital hospital) {
-        /* first check and see if there is a receptionist
-         *  if not there must be one working
-         *  check and see if animal is registered
-         *      it not, it must be
-         *  add animal to the queue waiting to be picked up by a doctor
-         */
 
         Map<String, Object> receptionists = hospital.getEmployees("receptionists");
         if(receptionists.size() == 0) {
@@ -198,5 +194,15 @@ public class HospitalOperations {
 
         hospital.checkInAnimal(animals.get(animalName));
 
+    }
+    public void doctorAcceptPatient(Hospital hospital) {
+        /* check and see if there are any doctors working
+         *      if not, there must be
+         * if there are doctors working, check and see if they have a patient
+         *      if there are no doctors working, with no availability, wait
+         *          signal to wait until next checkout
+         * doctor picks up from queue
+         *  
+         */
     }
 }
