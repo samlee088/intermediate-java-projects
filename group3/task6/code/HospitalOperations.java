@@ -23,12 +23,12 @@ public class HospitalOperations {
             System.out.println("2. Create a doctor");
             System.out.println("3. Receptionist Working");
             System.out.println("4. Doctor Working");
-            System.out.println("6. Add Pet to hospital records");
-            System.out.println("7. Check In Pet");
-            System.out.println("8. Doctor accept pet for visit");
-            System.out.println("9. Treat Pet");
-            System.out.println("10. Doctor finish visit");
-            System.out.println("11. Check Out Pet");
+            System.out.println("5. Add Pet to hospital records");
+            System.out.println("6. Check In Pet");
+            System.out.println("7. Doctor accept pet for visit");
+            System.out.println("8. Treat Pet");
+            System.out.println("9. Doctor finish visit");
+            System.out.println("10. Check Out Pet");
             System.out.print("Enter your choice: ");
             int choice = scanner.nextInt();
             scanner.nextLine();
@@ -42,6 +42,8 @@ public class HospitalOperations {
                     doctorOnDuty(hospital);
                 case 4:
                     receptionistOnDuty(hospital);
+                case 5:
+
             }
         }
     }
@@ -123,5 +125,9 @@ public class HospitalOperations {
         receptionist.working();
 
         hospital.setReceptionists(receptionist);
+    }
+
+    private void addAnimal() {
+        
     }
 }
