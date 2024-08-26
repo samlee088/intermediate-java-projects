@@ -282,7 +282,15 @@ public class HospitalOperations {
                 case 1:
                     patient.routineVisit();
                 case 2:
-                    
+                   if(patient instanceof Dog) {
+                    Dog dog = (Dog) patient;
+                    dog.spayNeuter();
+                   } else if(patient instanceof Cat) {
+                    Cat cat = (Cat) patient;
+                    cat.spayNeuter();
+                   } else {
+                    System.out.println("Patient must be cat or dog to spay/neuter");
+                   }
                 case 3:
                     patient.specializedCare();
                 case 4:
