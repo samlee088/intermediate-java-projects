@@ -1,5 +1,6 @@
 package group3.task6.code;
 
+import java.util.Map;
 import java.util.Scanner;
 
 import group3.task6.code.Employees.Doctor;
@@ -37,6 +38,8 @@ public class HospitalOperations {
                     createAReceptionist(hospital);
                 case 2:
                     createADoctor(hospital);
+                case 3:
+
             }
         }
     }
@@ -74,5 +77,27 @@ public class HospitalOperations {
         }
         
 
+    }
+
+    private void doctorOnDuty(Hospital hospital) {
+        System.out.println("Please enter a doctor's name to check in as working");
+        String doctorsName = scanner.next();
+
+        Map<String, Object> doctors = hospital.getEmployees("doctors");
+        if(doctors.size() == 0) {
+            System.out.println("No doctors registered");
+            return;
+        }
+
+        if(!doctors.containsKey(doctorsName)) {
+            System.out.println("No doctor with this name found in database");
+            return;
+        }
+
+        Doctor doctor = (Doctor) doctors.get(doctorsName);
+
+        doctor.working();
+
+        hospital.setDoctors(doctor);
     }
 }
